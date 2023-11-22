@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>password generator</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+  </head>
+  <body>
+    <div class="container d-flex justify-content-center align-items-center min-vh-100 text">
+      <div class="d-flex flex-column">
+      <h1>PASSWORD GENERATOR</h1>
+      <div class="d-flex flex-column gap-2 mt-2">
+      <label for="passwordLength" class="text-uppercase fw-bold">Panjang Password</label>
+      <input class="form-control-lg" id="passwordLength" type="number" />
+      <label for="password" class="text-uppercase fw-bold">Hasil</label>
+      <input class="form-control-lg" id="password" />
+      <button class="btn btn-dark text-uppercase fw-bold btn-lg mt1" onClick="getPassword()">GENERATE PASSWORD</button>
+      </div>
+    </div>
+  </div>
+    <script>
+    let passwordLength = document.getElementById('passwordLength')
+let password = document.getElementById('password')
+
+function generatePassword(len) {
+  const lowerAlphabet = "abcdefghijklmnopqrstuvwxyz"
+  const upperAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+  const numeric = "123456789"
+  const symbol = "@#$_&-+*?!~="
+  
+  const data = lowerAlphabet + upperAlphabet + numeric + symbol
+  let generator = '';
+  for (let i = 0; i < len; i++) {
+    generator += data[~~(Math.random() * data.length)];
+  }
+  return generator
+}
+
+function getPassword() {
+  const newPassword = generatePassword(passwordLength.value)
+  password.value = newPassword
+  alert("password has been generated")
+} 
+</script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

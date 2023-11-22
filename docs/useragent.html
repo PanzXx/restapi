@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CEK USER AGENT</title>
+  </head>
+  <body>
+     <h1 class="uagent" id="ua"></h1>
+     <style>
+     body {
+       background-color: #222;
+     }
+       .uagent {
+         color: white;
+         border: 2px dashed white;
+         background-color: #222;
+         font-size: 15px;
+       }
+     </style>
+    <script>
+    const ua = document.getElementById('ua')
+      let userAgent = "<p><b>USER AGENT ANDA </b>: " + navigator.userAgent + "</p>";
+      ua.innerHTML = userAgent
+    </script>
+  </body>
+</html>

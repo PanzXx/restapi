@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONTACT ME</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <!-- NAVIGASI -->
+  <div class="container-contact">
+    <div class="wame">
+      <marquee id="panzxd"></marquee>
+    </div>
+    <!-- END -->
+    <div>
+      <a class="wame" href="https://wa.me/+6285254597065/">My WhatsApp</a>
+    </div>
+    <div>
+      <a class="wame" href="https://wa.me/+6285387701599?text=.menu">My Bot WA1</a>
+    </div>
+    <div>
+      <a class="wame" href="https://wa.me/+6281269763507?text=.menu">My Bot WA2</a>
+    </div>
+    <div>
+      <a class="wame" href="https://instagram.com/apri_panjii">Instagram</a>
+    </div>
+    <div>
+      <a class="wame" href="https://github.com/PanzXx">Github</a>
+    </div>
+    <div>
+      <a class="wame" href="../index.html">BACK</a>
+    </div>
+  </div>
+    <script>
+let  welcomeContactMe = document.getElementById('panzxd')
+let namaUsernya = prompt('Masukkan Nama Kamu!')
+let textWelcome;
+if (namaUsernya == null) {
+  textWelcome = `👇MY SOCIAL MEDIA ACCOUNT👇`
+} else {
+  textWelcome = `WELCOME ${namaUsernya} 👋 ON PAGE OF MY SOCIAL MEDIA ACCOUNT`
+}
+welcomeContactMe.innerHTML = textWelcome
+    </script>
+  </body>
+</html>

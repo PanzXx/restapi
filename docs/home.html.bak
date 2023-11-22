@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NitzsuPanZ</title>
+<style>
+  body {
+background-color : #222;
+
+}
+
+.navbar {  
+  justify-content: center;
+  align-items: center;
+  width: 99%;
+  height: 83vh;
+  background-color: #0000;
+  border: 2px solid cyan;
+}
+
+.h1nya {
+  background-color: #222;
+  display: flex;
+  font-family: Arial, Helvetica, Sans-Serif;
+  justify-content: center;
+  text-decoration: none;
+  color: white;
+  font-size: 11px;
+  border: 2px solid cyan;
+  padding: 4%;
+  margin: 4%;
+}
+
+.h1nya:hover {
+  background-color: cyan;
+  transition: .1s ease-in-out;
+}
+
+.welcome {
+  background-color: #222;
+  color: white;
+	font-family: Helvetica, sans-serif;
+	font-weight: bold;
+  font-size: 15px;
+  border: 3px solid cyan;
+  box-shadow: 0px 5px 5px #000;
+  padding: 6px;
+  margin: 5px;
+}
+
+.container-itsu {
+  text-align: center;
+	/*stitching*/
+	outline-offset: -5px;
+	
+	background-color: #222;
+	height: 96vh;
+	width: 100%;
+	
+	/*shadow*/
+	box-shadow: 0px 5px 5px #000;
+}
+
+/*.container-itsu {
+  background-color: #222;
+  align-content: center;
+  text-align: center;
+}*/
+
+.itsu {
+  display: flex;
+  font-family: Arial, Helvetica, Sans-Serif;
+  text-align: center;
+  justify-content: center;
+  text-decoration: none;
+  color: white;
+  font-size: 11px;
+  border: 2px dashed cyan;
+  padding: 10px;
+  margin: 20px;
+}
+
+.container-contact {
+  text-align: center;
+	/*stitching*/
+	outline-offset: -5px;
+	
+	background-color: #222;
+	height: 96vh;
+	
+	/*shadow*/
+	box-shadow: 0px 5px 5px #000;
+}
+
+.wame {
+  display: flex;
+  font-family: Arial, Helvetica, Sans-Serif;
+  text-align: center;
+  justify-content: center;
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  border: 2px dashed cyan;
+  padding: 10px;
+  margin: 20px;
+}
+
+.datee {
+  font-size: 13px;
+  Border: 3px solid cyan;
+  text-align: center;
+  padding: 3px;
+  margin: 3px;
+  }
+</style>
+  </head>
+  <body>
+    <div class="welcome">
+      <h3 id="date" class="datee">Wait...</h3>
+      <marquee id="welcomejs"></marquee>
+    </div>
+    <div class="navbar">
+    <h1 class="h1nya" onclick="toggleAudio()">PLAY AUDIO</h1>
+      <a id="about()" class="h1nya" href="/docs/aboutme.html">ABOUT ME</a>
+      <a id="contact()" class="h1nya" href="/docs/contactme.html">CONTACT ME</a>
+     	<a class="h1nya" href="/docs">DOCS API</a>
+      <a class="h1nya" href="/docs/kalkulator.html">CALCULATOR</a>
+      <a class="h1nya" href="/docs/pwmaker.html">PASSWORD MAKER</a>
+      <a class="h1nya" href="/docs/useragent.html">CEK USER AGENT</a>
+    </div>
+    
+    <script>
+      let welcome = document.getElementById('welcomejs');
+// let namaUser = prompt('Masukkan Nama Kamu!');
+// let tetxnya;
+// if (namaUser == null) {
+//   textnya = `WELCOMEEE 👋`
+// } else {
+//   textnya = `Welcome ${namaUser}`
+// }
+welcome.innerText = ("WELCOMEEE 👋");
+
+const date = document.getElementById('date');
+setInterval(() => {
+  let d = new Date(); 
+  const jam = d.getHours().toString().padStart(2, 0);
+  const menit = d.getMinutes().toString().padStart(2, 0);
+  const detik = d.getSeconds().toString().padStart(2, 0);
+  const tgl = d.getDate();
+  const bln = d.getMonth();
+  const thn = d.getFullYear();
+  date.innerHTML =
+    "<b>JAM</b>: " +
+    jam +
+    ":" +
+    menit +
+    ":" +
+    detik;
+}, 250);
+
+// script.js
+
+// Cek apakah ada status audio di sessionStorage
+var audioStatus = sessionStorage.getItem('audioStatus');
+var audio = new Audio('/docs/bg.mp3');
+
+// Inisialisasi status audio
+if (audioStatus === 'playing') {
+  audio.play();
+}
+
+// Tambahkan fungsi untuk memutar atau menghentikan audio
+function toggleAudio() {
+  if (audio.paused) {
+    audio.play();
+    sessionStorage.setItem('audioStatus', 'playing');
+  } else {
+    audio.pause();
+    sessionStorage.setItem('audioStatus', 'paused');
+  }
+}
+    </script>
+  </body>
+</html>

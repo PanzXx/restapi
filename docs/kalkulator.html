@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <title>Kalkulator</title>
+    <style>
+        body {
+            background-color: #222;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .calculator {
+          background-color: #222;
+          color: white;
+            width: ;
+            height: auto; /* Sesuaikan ketinggian kalkulator */
+            padding: 0px;
+        }
+
+        .back-button {
+            margin-top: 15px; /* Tambahkan margin atas untuk tombol back */
+        }
+    </style>
+</head>
+<body>
+
+<div class="calculator card">
+    <input type="text" id="display" class="form-control mb-2" readonly>
+    <div class="row">
+        <button class="btn btn-dark col-3" onclick="clearDisplay()">C</button>
+        <button class="btn btn-dark col-3" onclick="appendToDisplay('/')">/</button>
+        <button class="btn btn-dark col-3" onclick="appendToDisplay('*')">*</button>
+        <button class="btn btn-dark col-3" onclick="appendToDisplay('-')">-</button>
+    </div>
+    <div class="row">
+        <button class="btn btn-light col-3" onclick="appendToDisplay('7')">7</button>
+        <button class="btn btn-light col-3" onclick="appendToDisplay('8')">8</button>
+        <button class="btn btn-light col-3" onclick="appendToDisplay('9')">9</button>
+        <button class="btn btn-dark col-3" onclick="appendToDisplay('+')">+</button>
+    </div>
+    <div class="row">
+        <button class="btn btn-light col-3" onclick="appendToDisplay('4')">4</button>
+        <button class="btn btn-light col-3" onclick="appendToDisplay('5')">5</button>
+        <button class="btn btn-light col-3" onclick="appendToDisplay('6')">6</button>
+        <button class="btn btn-dark col-3" onclick="calculate()">=</button>
+    </div>
+    <div class="row">
+        <button class="btn btn-light col-3" onclick="appendToDisplay('1')">1</button>
+        <button class="btn btn-light col-3" onclick="appendToDisplay('2')">2</button>
+        <button class="btn btn-light col-3" onclick="appendToDisplay('3')">3</button>
+        <button class="btn btn-dark col-3" onclick="appendToDisplay('0')">0</button>
+    </div>
+    <div class="row back-button">
+        <a href="../index.html" class="btn btn-primary col-12">BACK</a>
+    </div>
+</div>
+
+<script>
+let display = document.getElementById('display');
+
+function appendToDisplay(value) {
+    display.value += value;
+}
+
+function clearDisplay() {
+    display.value = '';
+}
+
+function calculate() {
+    try {
+        display.value = eval(display.value);
+    } catch (error) {
+        display.value = 'Error';
+    }
+}
+</script>
+
+</body>
+</html>
